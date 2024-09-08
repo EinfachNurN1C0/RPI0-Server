@@ -1,0 +1,13 @@
+services:
+  pihole:
+    container_name: PiHole
+    image: pihole/pihole:latest
+    hostname: RPI0
+    environment:
+      TZ: 'Europe/Berlin'
+      WEBPASSWORD: '1234'
+    volumes:
+      - './data/etc-pihole:/etc/pihole'
+      - './data/etc-dnsmasq.d:/etc/dnsmasq.d'
+    restart: unless-stopped
+    network_mode: "host"

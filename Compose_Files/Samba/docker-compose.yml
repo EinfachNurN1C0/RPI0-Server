@@ -1,0 +1,12 @@
+services:
+  samba:
+    image: dperson/samba
+    container_name: Samba
+    restart: unless-stopped
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - ~/Storage/Share:/Share
+    command: >
+      -n -p -r -s "Share;/Share;yes;no;yes"
