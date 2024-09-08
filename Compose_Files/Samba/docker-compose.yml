@@ -8,5 +8,6 @@ services:
       - "445:445"
     volumes:
       - ~/Storage/Share:/Share
+      #- ./smb.conf:/etc/samba/smb.conf  # Mount custom config
     command: >
       -n -p -r -s "Share;/Share;yes;no;yes"
